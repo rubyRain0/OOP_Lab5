@@ -11,17 +11,17 @@ Time::Time(unsigned int h, unsigned int m, unsigned int s) : Triad("Time")
 	fixTime();
 }
 
-Time& Time::operator++()
+Triad& Time::operator++()
 {
 	Time _1sec(0, 0, 1);
 	(*this) += _1sec;
 	return *this;
 }
 
-Time* Time::operator++(int)
+Triad& Time::operator++(int)
 {
 	Time _1sec(0, 0, 1);
-	Time* result = this;
+	Triad& result = *this;
 	(*this) += _1sec;
 	return result;
 }
@@ -135,8 +135,9 @@ void Time::fixTime()
 	}
 }
 
-std::ostream& operator<<(std::ostream& out, Time& objTime) 
+std::string Time::toString() 
 {
-	out << objTime.a << ":" << objTime.b << ":" << objTime.c << std::endl;
-	return out;
+	std::stringstream out;
+	out << a << ":" << b << ":" << c << std::endl;
+	return out.str();
 }

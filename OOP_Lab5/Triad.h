@@ -16,9 +16,11 @@ public:
 	Triad(std::string _triadType);
 
 	virtual Triad& operator++() = 0;
-	virtual Triad* operator++(int) = 0;
+	virtual Triad& operator++(int) = 0;
 	virtual bool operator>(const Triad& objTriad) = 0;
 	virtual bool operator<(const Triad& objTriad) = 0;
+	virtual std::string toString() = 0;
+
 
 	bool operator==(const Triad& objTriad);
 	bool operator!=(const Triad& objTriad);

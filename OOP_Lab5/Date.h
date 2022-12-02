@@ -13,15 +13,15 @@ public:
 
 	int maxday() const;
 
-	Date& operator++() override;
-	Date* operator++(int) override;
+	Triad& operator++() override;
+	Triad& operator++(int) override;
 	bool operator>(const Triad& objDate) override;
 	bool operator<(const Triad& objDate) override;
 
 	Date& operator+=(int days);
 	Date& operator-=(int days);
 
-	friend std::ostream& operator<<(std::ostream& out, const Date& objDate);
+	std::string toString() override;
 
 	static int dayDifference(const Date& dateObj1, const Date& dateObj2);
 	static bool isValidDate(unsigned int day, unsigned int month, unsigned int year);

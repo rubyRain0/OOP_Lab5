@@ -137,15 +137,15 @@ int Date::maxday() const
 	return days[this->b - 1];
 }
 
-Date& Date::operator++()
+Triad& Date::operator++()
 {
 	*this += 1;
 	return *this;
 }
 
-Date* Date::operator++(int)
+Triad& Date::operator++(int)
 {
-	Date* result = this;
+	Triad& result = *this;
 	++(*this);
 	return result;
 }
@@ -178,10 +178,11 @@ Date Date::currentTime()
 	return currentDate;
 }
 
-std::ostream& operator<<(std::ostream& out, const Date& objDate)
+std::string Date::toString()
 {
-	out << objDate.a << '/'
-		<< objDate.b << '/'
-		<< objDate.c << std::endl;
-	return out;
+	std::stringstream out;
+	out << a << '/'
+		<< b << '/'
+		<< c << std::endl;
+	return out.str();
 }

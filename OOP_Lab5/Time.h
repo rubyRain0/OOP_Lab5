@@ -8,17 +8,15 @@ public:
 	Time();
 	Time(unsigned int h, unsigned int m, unsigned int s);
 
-	Time& operator++() override;
-	Time* operator++(int) override;
+	Triad& operator++() override;
+	Triad& operator++(int) override;
 	bool operator>(const Triad& objDate) override;
 	bool operator<(const Triad& objDate) override;
+	std::string toString() override;
 
 	Time operator+(Time& objTime);
 	Time& operator+=(Time& objTime);
 	Time operator-(Time& objTime);
 	Time& operator-=(Time& objTime);
-
-	friend std::ostream& operator<<(std::ostream& out, Time& objTime);
-
 };
 
